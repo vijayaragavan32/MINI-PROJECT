@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <div class="input-container">
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-container">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit">Login</button>
+      <center><a href="sigin" class="sigin-link">Create Account</a></center>
+      <div id="error-message" class="error-message"></div>
+    </form>
+  </div>
+
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const errorMessage = document.getElementById('error-message');
+
+    loginForm.addEventListener('submit', async function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      // Prepare the data to send
+      const requestData = {
+        email: email,
+        password: password
+      };
+
+      try {
+        const response = await fetch('/loginapi', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(requestData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Handle successful login (e.g., redirect to another page or show a message)
+          // alert('Login successful!');
+          // Optionally, redirect to a protected page or dashboard
+          window.location.href = '/dashboard'; 
+           localStorage.setItem("userId",data.userId)
+        } else {
+          // Display error message from the server
+          errorMessage.textContent = data.message || 'An error occurred during login.';
+        }
+      } catch (error) {
+        // Handle any network or fetch errors
+        console.error('Error during login:', error);
+        errorMessage.textContent = 'There was an error with the request. Please try again later.';
+      }
+    });
+  </script>
+</body>
+</html>
