@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My E-commerce Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="one">FRESH HARVEST</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#products">Shop</a></li>
+                    <li><a href="#about">About us</a></li>
+                    <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                    <li><a href="#" class="cart-btn">Cart (<span id="cart-count">0</span>)</a></li>
+                    <li><button onclick="logout()" class="log-out-btn">LOGOUT</button></li>
+
+
+                </ul>
+
+            </nav>
+
+        </div>
+    </header>
+
+
+    <section class="hero" id="home" style="background: url('banner2.jpg') no-repeat center center/cover">
+        <div class="container">
+            <a href="#" class="shop-now-btn">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="container">
+            <h2>Organic fruits</h2>
+            <div class="product-list">
+
+                <div class="product" data-name="Apple 1/kg" data-price="80.00">
+                    <img src="apple.jpg" alt="Product poda">
+                    <h3>APPLE</h3>
+                    <p>1kg / 80.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Orange 1/kg " data-price="40.00">
+                    <img src="orange.jpeg" alt="Product 2">
+                    <h3>ORANGE</h3>
+                    <p>1kg / 40.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Grapes 1/kg" data-price="45.00">
+                    <img src="grapes.jpg" alt="Product 3">
+                    <h3>GRAPES</h3>
+                    <p>1kg / 45.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Pomegranate 1/kg " data-price="70.00">
+                    <img src="pomagranate.jpg" alt="Product 4">
+                    <h3>POMEGRANATE</h3>
+                    <p>1kg / 70.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Pineapple 1/kg " data-price="60.00">
+                    <img src="pineapple.jpg" alt="Product 5">
+                    <h3>PINEAPPLE</h3>
+                    <p>1kg / 60.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Strawberry 1/kg " data-price="80.00">
+                    <img src="strawberry.jpg" alt="Product 6">
+                    <h3>STRAWBERRY</h3>
+                    <p>1kg / 80.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Watermelon 1/kg " data-price="35.00">
+                    <img src="watermelon.jpg" alt="Product 7">
+                    <h3>WATERMELON</h3>
+                    <p>1kg / 35.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Banana 1/kg" data-price="40.00">
+                    <img src="banana.jpg" alt="Product 8">
+                    <h3>BANANA</h3>
+                    <p>1kg / 40.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Mango 1/kg" data-price="80,00">
+                    <img src="mango.jpg" alt="Product 9">
+                    <h3>MANGO</h3>
+                    <p>1KG / 80.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Jack fruit 1/kg" data-price="60.00">
+                    <img src="jack fruit.jpg" alt="Product 10">
+                    <h3>JACK FRUIT</h3>
+                    <p>1kg / 60.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Guava 1/kg" data-price="50.00">
+                    <img src="guava.jpg" alt="Product 11">
+                    <h3>GUAVA</h3>
+                    <p>1kg / 50.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+                <div class="product" data-name="Indian gooseberry 1/kg" data-price="40.00">
+                    <img src="gooseberry.jpg" alt="Product 12">
+                    <h3>GOOSEBERRY</h3>
+                    <p>1kg / 40.00</p>
+                    <button class="buy-btn">Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <div class="cart-btn-section">
+                <p>Total: <span id="total-price">0.00</span></p>
+                <button class="order-btn" id="order-btn">Place order</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <section id="reviews" class="content-section">
+        <div class="container">
+            <h2>Customer Reviews</h2>
+            <div class="reviews-container">
+                <div class="review">
+                    <p class="review-text">"FreshHarvest delivers the best quality fruits! I’m amazed by how fresh
+                        everything was. The delivery was quick, and I love the eco-friendly packaging!"</p>
+                    <p class="review-author">- Sarah L.</p>
+                </div>
+
+                <div class="review">
+                    <p class="review-text">"I’ve been ordering from FreshHarvest for months now, and the quality has
+                        always been top-notch. The customer service is great, and they make healthy eating so easy!"</p>
+                    <p class="review-author">- John D.</p>
+                </div>
+
+                <div class="review">
+                    <p class="review-text">"Amazing service and even better fruits! FreshHarvest is my go-to store for
+                        all my fruit needs. Highly recommended to anyone who loves fresh produce."</p>
+                    <p class="review-author">- Emily K.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="content-section">
+        <div class="container">
+            <h2>About Us</h2>
+            <p><strong>Welcome to FreshHarvest, Your Premier Online Fruit Store!</strong></p>
+            <p>
+                At FreshHarvest, we believe that everyone deserves to enjoy the freshest, highest-quality fruits, no
+                matter where they are. Our mission is to make farm-fresh, nutrient-rich fruits accessible to your
+                doorstep with just a few clicks.
+            </p>
+        </div>
+    </section>
+
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 My Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        async function logout() {
+                        try {
+                          const response = await fetch('/logout', {
+                            method: 'GET',
+                            credentials: 'include'
+                          });
+                          
+                          const data = await response.json();
+                         if(data.states){
+                            window.location.href='/'
+                            localStorage.clear()
+                         }
+                        } catch (error) {
+                          console.error('Error during logout:', error);
+                        }
+                      }
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>
